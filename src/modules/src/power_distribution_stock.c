@@ -51,7 +51,7 @@ bool powerDistributionTest(void)
   return pass;
 }
 
-uint16_t limitUint16toPercent(int32_t value, const uint16_t max_value_percent) {
+uint16_t limitUint16ToPercent(int32_t value, const uint16_t max_value_percent) {
   const uint16_t max_value = UINT16_MAX * max_value_percent / 100;
   uint16_t limited = limitUint16(value);
   if (limited > max_value) {
@@ -60,8 +60,7 @@ uint16_t limitUint16toPercent(int32_t value, const uint16_t max_value_percent) {
   return limited;
 }
 
-//#define limitThrust(VAL) limitUint16(VAL)
-#define limitThrust(VAL) limitUint16ToPercent(VAL, 35)
+#define limitThrust(VAL) limitUint16ToPercent(VAL, 50)
 
 void powerDistribution(motors_thrust_t* motorPower, const control_t *control)
 {
